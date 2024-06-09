@@ -12,7 +12,8 @@ datos_mtcars
 library(dplyr)
 install.packages("DT")
 library(DT)
-
+str(mtcars)
+summary(mtcars)
 
 ```
 ```{r}
@@ -45,5 +46,16 @@ plot(mtcars$hp,mtcars$mpg,
      ylab= "Millas por Galón ",
      pch=20)
        
+```
+
+```{r}
+data("mtcars")
+cilindros<-table(mtcars$ncyl)
+barplot(cilindros,main="Distribución de vehículos por Categoría de Cilindros",
+        xlab="Distribución de vehículos ",
+        ylab="Categoría de Cilindros",
+        col="plum2",
+        horiz=TRUE)
+
 ```
 
