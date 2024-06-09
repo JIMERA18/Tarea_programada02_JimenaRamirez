@@ -49,6 +49,7 @@ plot(mtcars$hp,mtcars$mpg,
 ```
 
 ```{r}
+##gráfico de barras
 data("mtcars")
 cilindros<-table(mtcars$ncyl)
 barplot(cilindros,main="Distribución de vehículos por Categoría de Cilindros",
@@ -57,5 +58,42 @@ barplot(cilindros,main="Distribución de vehículos por Categoría de Cilindros"
         col="plum2",
         horiz=TRUE)
 
+```
+
+##Estadística descriptiva
+```{r}
+data("mtcars")
+media<-mean(mtcars$mpg)
+media
+```
+```{r}
+data("mtcars")
+mediana<-median(mtcars$mpg)
+mediana
+```
+```{r}
+data("mtcars")
+varianza<-var(mtcars$mpg)
+varianza
+```
+```{r}
+data("mtcars")
+desviación_estándar<-sd(mtcars$mpg)
+desviación_estándar
+```
+##tabla de contigencia
+```{r}
+data("mtcars")
+tabla_contigencia<-table(mtcars$cyl,mtcars$gear)
+tabla_contigencia
+
+```
+##Estadística inferencial
+```{r}
+t.test(mtcars$mpg,mu=20)
+```
+#prueba de correlación de Pearson
+```{r}
+cor.test(mtcars$hp,mtcars$mpg,method = "pearson")
 ```
 
