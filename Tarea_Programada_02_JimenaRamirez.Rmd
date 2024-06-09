@@ -1,0 +1,49 @@
+---
+title: "Tarea_Programada_02_JimenaRamirez"
+author: "Jimena Ramirez Zamora"
+date: "2024-06-09"
+output: html_document
+---
+
+```{r}
+install.packages("mtcars")
+datos_mtcars<-mtcars
+datos_mtcars
+library(dplyr)
+install.packages("DT")
+library(DT)
+
+
+```
+```{r}
+##histograma para millas por galón
+data("mtcars")
+hist(mtcars$mpg ,main="Optimización de Millas por galón a través del Análisis de Datos",
+     xlab= "millas por galón",
+     col="thistle1",
+     freq=TRUE)
+```
+
+```{r}
+##boxplot
+data("mtcars")
+boxplot(mtcars$mpg~mtcars$cyl,main= "Relación entre el Número de Cilindros y las Millas por Galón",
+        xlab="Número de Cilindros",
+        ylab="millas por galón",
+        col="darkseagreen1",
+        border="darkseagreen",
+        horizontal = TRUE,
+        notch=TRUE)
+```
+
+```{r}
+##dispersión
+data("mtcars")
+plot(mtcars$hp,mtcars$mpg,
+     main = "Relación entre Caballos de Fuerza y las Millas por Galón",
+     xlab = "Caballos de Fuerza",
+     ylab= "Millas por Galón ",
+     pch=20)
+       
+```
+
