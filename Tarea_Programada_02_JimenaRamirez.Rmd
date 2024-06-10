@@ -16,6 +16,13 @@ str(mtcars)
 summary(mtcars)
 
 ```
+
+```{r}
+datatable(mtcars, options = list(pageLength = 6))
+```
+
+
+
 ```{r}
 ##histograma para millas por galón
 data("mtcars")
@@ -24,6 +31,7 @@ hist(mtcars$mpg ,main="Optimización de Millas por galón a través del Análisi
      col="thistle1",
      freq=TRUE)
 ```
+El histograma nos muestra una representación de la distribución de un conjunto de datos númericos. Los datos se distribuyen en intervalos y la altura de cada barra indica la cantidad de observaciones. En este caso que se utiliza los datos de millas por galón, se puede determinar que la mayoría de los vehículos tienen un rendimiento de combustible que esta entre 15 y 20.Mientras que las barras que esta al extremo derecho nos indica los rendimientos muy bajos que esta entre 30 y 35.
 
 ```{r}
 ##boxplot
@@ -36,6 +44,7 @@ boxplot(mtcars$mpg~mtcars$cyl,main= "Relación entre el Número de Cilindros y l
         horizontal = TRUE,
         notch=TRUE)
 ```
+El diagrama de caja nos presenta distribución
 
 ```{r}
 ##dispersión
