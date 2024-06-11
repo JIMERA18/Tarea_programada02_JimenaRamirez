@@ -117,4 +117,4 @@ La prueba t se encarga de evaluar las medias de uno o dos grupos mediante la pru
 ```{r}
 cor.test(mtcars$hp,mtcars$mpg,method = "pearson")
 ```
-
+El coefciente de correlación de pearson es una prueba que se encarga de medir la relación estadistica entre dos variables continuas. Puede tomar un rango de valores de 1 a -1. Se obtuvo un valor de -0.776 que nos indica una correlación fuerte y negativa ;y que a medida que el valor de una variable aumenta el otro disminuye
