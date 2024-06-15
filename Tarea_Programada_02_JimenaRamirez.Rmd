@@ -4,9 +4,8 @@ author: "Jimena Ramirez Zamora"
 date: "2024-06-09"
 output: html_document
 ---
-
+instalar los paquetes
 ```{r}
-install.packages("mtcars")
 datos_mtcars<-mtcars
 datos_mtcars
 library(dplyr)
@@ -14,11 +13,11 @@ install.packages("DT")
 library(DT)
 str(mtcars)
 summary(mtcars)
-
 ```
-
+paged_table se usa para mostrar un data frame de manera paginada, en este caso seria 6
 ```{r}
-datatable(mtcars, options = list(pageLength = 6))
+library(rmarkdown)
+paged_table(mtcars, options = list(rows.print=6))
 ```
 
 
@@ -31,7 +30,7 @@ hist(mtcars$mpg ,main="Optimización de Millas por galón a través del Análisi
      col="thistle1",
      freq=TRUE)
 ```
-El histograma nos muestra una representación de la distribución de un conjunto de datos númericos. Los datos se distribuyen en intervalos y la altura de cada barra indica la cantidad de observaciones. En este caso que se utiliza los datos de millas por galón, se puede determinar que la mayoría de los vehículos tienen un rendimiento de combustible que esta entre 15 y 20.Mientras que las barras que esta al extremo derecho nos indica los rendimientos muy bajos que esta entre 30 y 35.
+El histograma nos muestra una representación de la distribución de un conjunto de datos númericos. Los datos se distribuyen en intervalos y la altura de cada barra indica la cantidad de observaciones. En este caso que se utiliza los datos de millas por galón, se puede determinar que la mayoría de los vehículos tienen un rendimiento de combustible que esta entre 15 y 20.Mientras que las barras que esta al extremo derecho nos indica los rendimientos muy bajos que esta entre 25 y 35.
 
 ```{r}
 ##boxplot
@@ -117,4 +116,4 @@ La prueba t se encarga de evaluar las medias de uno o dos grupos mediante la pru
 ```{r}
 cor.test(mtcars$hp,mtcars$mpg,method = "pearson")
 ```
-El coefciente de correlación de pearson es una prueba que se encarga de medir la relación estadistica entre dos variables continuas. Puede tomar un rango de valores de 1 a -1. Se obtuvo un valor de -0.776 que nos indica una correlación fuerte y negativa ;y que a medida que el valor de una variable aumenta el otro disminuye
+El coefciente de correlación de pearson es una prueba que se encarga de medir la relación estadistica entre dos variables continuas. Puede tomar un rango de valores de 1 a -1. Se obtuvo un valor de -0.776 que nos indica una correlación fuerte y negativa ;y que a medida que el valor de una variable aumenta el otro disminuye.
