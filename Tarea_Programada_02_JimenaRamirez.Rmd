@@ -5,18 +5,21 @@ date: "2024-06-09"
 output: html_document
 ---
 instalar los paquetes
-```{r}
-datos_mtcars<-mtcars
-datos_mtcars
+```{r message=FALSE}
 library(dplyr)
-install.packages("DT")
-library(DT)
+library(rmarkdown)
+datos_mtcars<-mtcars
 str(mtcars)
+```
+
+summary para crear un resumen de los datos
+```{r}
 summary(mtcars)
 ```
+
+
 paged_table se usa para mostrar un data frame de manera paginada, en este caso seria 6
 ```{r}
-library(rmarkdown)
 paged_table(mtcars, options = list(rows.print=6))
 ```
 
@@ -30,9 +33,11 @@ hist(mtcars$mpg ,main="Optimización de Millas por galón a través del Análisi
      col="thistle1",
      freq=TRUE)
 ```
+
+
 El histograma nos muestra una representación de la distribución de un conjunto de datos númericos. Los datos se distribuyen en intervalos y la altura de cada barra indica la cantidad de observaciones. En este caso que se utiliza los datos de millas por galón, se puede determinar que la mayoría de los vehículos tienen un rendimiento de combustible que esta entre 15 y 20.Mientras que las barras que esta al extremo derecho nos indica los rendimientos muy bajos que esta entre 25 y 35.
 
-```{r}
+```{r warning=FALSE}
 ##boxplot
 data("mtcars")
 boxplot(mtcars$mpg~mtcars$cyl,main= "Relación entre el Número de Cilindros y las Millas por Galón",
@@ -43,6 +48,8 @@ boxplot(mtcars$mpg~mtcars$cyl,main= "Relación entre el Número de Cilindros y l
         horizontal = TRUE,
         notch=TRUE)
 ```
+
+
 El diagrama de caja nos presenta distribución de los datos para una variable continua. Esto nos permiten visualizar el centro y la extensión de los datos. Tambien nos permite verificar si existe normalidad o si pueden haber valores atípicos.En este caso se realizo un diagrama de caja para comparar la distribución de millas por galón  entre los diferentes números de cilindros.Se puede identificar que los que poseen 4 cilindros tienen una mediana de millas por galón mas alta que los que poseen 6 o 8. Por lo que se puede concluir que conforme aumenta el número de cilindros va a disminuir las millas por galón
 
 ```{r}
@@ -55,6 +62,8 @@ plot(mtcars$hp,mtcars$mpg,
      pch=20)
        
 ```
+
+
 El gráfico de dispersión tiene como función mostrar la relación entre dos variables continuas.En este caso se busca comparar la relación entre caballos de fuerza y millas por galón.Cada punto representa un vehículo. Como se puede observar en el gráfico la dispersión de los puntos significa la variabilidad de los caballos de fuerza y las millas por galón.
 
 ```{r}
@@ -68,13 +77,19 @@ barplot(cilindros,main="Distribución de vehículos por Categoría de Cilindros"
         horiz=TRUE)
 
 ```
+
+
 El gráfico de barras tiene como función mostrar de manera resumida un conjunto de datos que puede tener variables cualitativas y continuas. En este caso se busca para mostrar el número de automóviles en cada categoría de cilindros. Se puede concluir que hay tres categorías de cilindros: la 4,6 y 8. Con las longitudes de las barras se puede deducir que la categoría con el mayor número de vehículos (14) es el 8 ,luego el 4 con 11 vehículos y por ultimo el 6 con 7 vehículos.
-##Estadística descriptiva
+
+
+# Estadística descriptiva
 ```{r}
 data("mtcars")
 media<-mean(mtcars$mpg)
 media
 ```
+
+
 La media es el valor promedio de un conjunto de datos númericos. En este caso se usa esta medida de tendencia central para obtener el promedio de las millas por galón,en este caso es de 20.09
 
 ```{r}
@@ -82,6 +97,8 @@ data("mtcars")
 mediana<-median(mtcars$mpg)
 mediana
 ```
+
+
 La mediana es el valor medio de un conjunto de datos, los cuales se pueden ordenar de forma ascedente o descendente.El resultado obtenido fue de 19.2, el cual corresponde a el punto central de la distribución de millas por galón.
 
 ```{r}
@@ -89,31 +106,46 @@ data("mtcars")
 varianza<-var(mtcars$mpg)
 varianza
 ```
+
+
 La varianza es una medida de dispersión que representa la variabilidad de un conjunto de datos con respecto a su media.La varianza millas por galón es de 36.3241, esto señala que hay una dispersión considerable.
+
+
 ```{r}
 data("mtcars")
 desviación_estándar<-sd(mtcars$mpg)
 desviación_estándar
 ```
+
+
 La desviación estandar es una medida de variabilidad en relación con la media. El resultado obtenido fue de 6.03 indicando que hay una variabilidad considerable en millas por galón.
 
-##tabla de contigencia
+
+# Tabla de contigencia
 ```{r}
 data("mtcars")
 tabla_contigencia<-table(mtcars$cyl,mtcars$gear)
 tabla_contigencia
 
 ```
+
+
 La tabla de contigencia se utiliza para crear al menos dos filas y dos columnas para representar los datos en términos de conteos de frecuencia. Las columnas son las marchas y las filas es el cilindraje. Por ejemplo que hay dos vehiculos con 5 marchas y 4 cilindros.
 
-##Estadística inferencial
+
+# Estadística inferencial
 ```{r}
 t.test(mtcars$mpg,mu=20)
 ```
+
+
 La prueba t se encarga de evaluar las medias de uno o dos grupos mediante la prueba de hipótesis. Como el p-value en este caso dio 0.9328 y al ser un valor alto que se debe comparar con el alfa(0,05), se concluye que no hay suficiente evidencia estadistica para rechazar la hipótesis nula de que el promedio de millas por galón es significativamente diferente de 20.
 
-#prueba de correlación de Pearson
+
+# Prueba de correlación de Pearson
 ```{r}
 cor.test(mtcars$hp,mtcars$mpg,method = "pearson")
 ```
+
+
 El coefciente de correlación de pearson es una prueba que se encarga de medir la relación estadistica entre dos variables continuas. Puede tomar un rango de valores de 1 a -1. Se obtuvo un valor de -0.776 que nos indica una correlación fuerte y negativa ;y que a medida que el valor de una variable aumenta el otro disminuye.
